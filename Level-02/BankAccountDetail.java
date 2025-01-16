@@ -1,14 +1,15 @@
 /*
-Program to Check Palindrome String
-Problem Statement: 	Create a PalindromeChecker class with an 
-attribute text. 
-Add methods to:
-	Check if the text is a palindrome.
-	Display the result.
-Explanation: The PalindromeChecker class holds the text 
-attribute. The methods operate on this attribute to verify 
-its palindrome status and display the result.
+Program to Simulate an ATM
+Problem Statement: Create a BankAccount class with attributes 
+accountHolder, accountNumber, and balance. 
+Add methods for:
+	Depositing money.
+	Withdrawing money (only if sufficient balance exists).
+	Displaying the current balance.
+Explanation: The BankAccount class stores bank account details as attributes. The methods allow interaction with these attributes to modify and view the account's state.
+
 */
+
 
 // This class represents a bank account with attributes accountHolder, accountNumber, and balance
 class BankAccount 
