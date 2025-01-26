@@ -16,29 +16,60 @@ Goal: Understand inheritance and polymorphism by modeling a real-world relations
 import java.util.ArrayList;
 import java.util.List;
 
-// Creating a class EmployeeManagementSystem to demonstrate the functionalities of the Employee and its subclasses
-class EmployeeManagementSystem {
+// Main class to demonstrate the functionalities of Employee and its subclasses
+public class EmployeeManagementSystem {
     public static void main(String[] args) {
-        // Creating a list to store employees
+        // Create a list to store employee objects
         List<Employee> employees = new ArrayList<>();
 
-        // Creating objects for each employee type and adding them to the list
-        employees.add(new FullTimeEmployee("FT001", "Alice", 50000));
-        employees.add(new FullTimeEmployee("FT002", "David", 52000));
-        employees.add(new FullTimeEmployee("FT003", "Eva", 51000));
-        employees.add(new FullTimeEmployee("FT004", "Frank", 53000));
-        employees.add(new FullTimeEmployee("FT005", "Grace", 54000));
-        employees.add(new PartTimeEmployee("PT001", "Bob", 0, 20, 25)); // 20 work hours * 25 hourly rate
-        employees.add(new PartTimeEmployee("PT002", "Harry", 0, 15, 20)); // 15 work hours * 20 hourly rate
-        employees.add(new PartTimeEmployee("PT003", "Ivy", 0, 30, 22)); // 30 work hours * 22 hourly rate
-        employees.add(new PartTimeEmployee("PT004", "Jack", 0, 25, 18)); // 25 work hours * 18 hourly rate
-        employees.add(new PartTimeEmployee("PT005", "Kate", 0, 10, 30)); // 10 work hours * 30 hourly rate
+        // Create FullTimeEmployee and PartTimeEmployee objects with provided values
+        FullTimeEmployee fullTimeEmployee1 = new FullTimeEmployee(101, "Alice", 50000);
+        fullTimeEmployee1.assignDepartment("Finance");
+        employees.add(fullTimeEmployee1);
 
-        // Processing and displaying details of each employee using polymorphism
+        PartTimeEmployee partTimeEmployee1 = new PartTimeEmployee(102, "Bob", 200, 25);
+        partTimeEmployee1.assignDepartment("Support");
+        employees.add(partTimeEmployee1);
+
+        FullTimeEmployee fullTimeEmployee2 = new FullTimeEmployee(103, "Charlie", 52000);
+        fullTimeEmployee2.assignDepartment("HR");
+        employees.add(fullTimeEmployee2);
+
+        PartTimeEmployee partTimeEmployee2 = new PartTimeEmployee(104, "David", 210, 20);
+        partTimeEmployee2.assignDepartment("IT");
+        employees.add(partTimeEmployee2);
+
+        FullTimeEmployee fullTimeEmployee3 = new FullTimeEmployee(105, "Eve", 53000);
+        fullTimeEmployee3.assignDepartment("Marketing");
+        employees.add(fullTimeEmployee3);
+
+        PartTimeEmployee partTimeEmployee3 = new PartTimeEmployee(106, "Fay", 220, 15);
+        partTimeEmployee3.assignDepartment("Logistics");
+        employees.add(partTimeEmployee3);
+
+        FullTimeEmployee fullTimeEmployee4 = new FullTimeEmployee(107, "Grace", 54000);
+        fullTimeEmployee4.assignDepartment("Sales");
+        employees.add(fullTimeEmployee4);
+
+        PartTimeEmployee partTimeEmployee4 = new PartTimeEmployee(108, "Heidi", 230, 10);
+        partTimeEmployee4.assignDepartment("Customer Service");
+        employees.add(partTimeEmployee4);
+
+        FullTimeEmployee fullTimeEmployee5 = new FullTimeEmployee(109, "Ivan", 55000);
+        fullTimeEmployee5.assignDepartment("Legal");
+        employees.add(fullTimeEmployee5);
+
+        PartTimeEmployee partTimeEmployee5 = new PartTimeEmployee(110, "Judy", 240, 30);
+        partTimeEmployee5.assignDepartment("Research");
+        employees.add(partTimeEmployee5);
+
+        // Process and display details of each employee using polymorphism
         for (Employee employee : employees) {
-            employee.displayDetails();
-            System.out.println("Calculated Salary: " + employee.calculateSalary());
-            System.out.println();
+            employee.displayDetails(); // Display details of each employee
+            if (employee instanceof Department) { // Check if the employee implements Department
+                System.out.println(((Department) employee).getDepartmentDetails());
+            }
+            System.out.println("--------------------------------");
         }
     }
 }
